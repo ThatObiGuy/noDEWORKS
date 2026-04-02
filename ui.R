@@ -11,7 +11,6 @@ library(shiny)
 library(DT)
 library(tidyverse)
 library(visNetwork)
-library(geomnet)
 library(igraph)
 library(shinyscreenshot)
 
