@@ -43,8 +43,8 @@ fluidPage(
             #actionButton("update_edge", "Update edge"), 
             h5(id = "EdgeUpdater","Static text to change when making new edges"),
             hr(),
-            #fileInput("file", NULL, buttonLabel = "Upload...", accept = c(".RData", ".rda")),
-            #actionButton("bupload", "Press to Load own dataset"),
+            fileInput("file", NULL, buttonLabel = "Upload...", accept = c(".RData", ".rda")),
+            actionButton("bupload", "Press to Load own dataset"),
             downloadButton("download", "Download RDA file"),
           ),
   

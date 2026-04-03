@@ -177,23 +177,16 @@ function(input, output, session) {
     edge_wdata$df <- data.frame(from = character(), to = character(), wdith = numeric())
   })
   observeEvent(input$bupload, {
-    if(!is.null(input$file)) {
-      #upload_data <- readRDS(input$upload$datapath)
-      #upload_data <- load(input$upload$datapath)
+    if (!is.null(input$file)) {
       infile <- input$file
       file <- infile$datapath
-      print(infile)
-      e = new.env()
-      upload_data <- load(input$upload$datapath, envir = e)
+      e <- new.env() # new r enviroment
+      load(file, envir = e) # load in data_list
+      upload_data <- e$data_list # assign to new variable
       
-      #print(e[[1]])
-      #nodes_wdata$df <- upload_data$nodes
-      #edges_wdata$df <- upload_data$edges
+      node_wdata$df <- upload_data$nodes # parse out the nodes and edges
+      edge_wdata$df <- upload_data$edges
     }
-    #data_input <- input_data()
-    
-    #node_wdata$df <- data_input$nodes
-    #edge_wdata$df <- data_input$edges
   })
   
     #input_data <- reactive({
